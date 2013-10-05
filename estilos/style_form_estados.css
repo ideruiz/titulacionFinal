@@ -1,0 +1,124 @@
+/*HOJA DE ESTILOS DEL FORMULARIO DE CARERRAS*/
+
+#todo{
+  background: #FAFAFA;
+  height: 100%;
+  margin-left: 4%;
+  overflow: auto;
+  }
+
+.titulo2{
+    line-height: 1.5;
+    color: #000;
+    text-align: left;   
+    font-size: 30px;
+    padding-top: 2%;
+    font-family: Segoe UI Light;
+    margin-bottom: 20px;
+}
+
+
+/*PARA EL BOTON DE REGRESAR*/
+
+#div_regresar2{
+  float: right;
+  width: 125px;
+  padding-top: 3%;
+  margin-right: 13%;
+}
+
+#botonatras{
+  background-color: #10151C;
+  width: 90px;
+  height: 35px;
+  float: right;
+  position: relative;
+}
+
+#iconoatras{
+  background-color: #D42B1E;
+  width: 35px;
+  height: 35px;
+  float: right;
+  position: relative;
+}
+
+#textoatras{
+  padding-top: 7px;
+  padding-left: 27px;
+  font-size: 18px;
+  color: #fff;
+}
+
+/*PARA EL BOTON DE GUARDAR*/
+
+/*DIV CONTENEDOR*/
+#div_guardar{
+  position: inherit;
+  float: left;
+  width: 125px;
+  padding-top: 2%;
+  margin-left: 9%;
+}
+
+#iconoguardar{
+  background-color: #FFB900;
+  width: 35px;
+  height: 35px;
+  float: right;
+  position: relative;
+}
+
+#botonguardar{
+  background-color: #10151C;
+  width: 90px;
+  height: 35px;
+  float: right;
+  position: relative;
+}
+
+#textoguardar{
+  padding-top: 7px;
+  padding-left: 14px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.visible{
+      background-color:orange; 
+      position:absolute;
+      top:5%;
+      left:5%;
+      right:5%;
+      width:auto;
+      height: auto;
+      z-index:+1;
+}
+
+.fondo{   
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    background-color:black;
+    /*IE*/
+    filter: alpha(opacity=50);
+    /*FireFox Opera*/
+    opacity: .5;
+}
+
+#tabla_vista{
+    background: white;
+    margin-top: 10%;
+    margin-left: 15%;
+    width: 65%;
+}
+
+#aviso{
+  font-size: 18px;
+  font-style: Segoe UI;
+  font-weight: bold;
+  color: green;
+  margin-left: 45%;
+}

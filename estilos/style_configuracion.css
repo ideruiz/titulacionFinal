@@ -1,0 +1,42 @@
+/*HOJA DE ESTILOS DE CONFIGURACIÓN*/
+
+#div_opc{
+	background: #FAFAFA;
+	height: 100%;
+}
+
+#opciones{
+	padding-top: 8.5%;
+	background: #FAFAFA;
+	padding-right: 8%;
+}
+
+.opc{
+	background-color: #D42B1E;
+	width: 28%;
+	height: 22%;
+	font-size: 200%;
+	display: inline-table;
+	margin-top: 4%;
+	border-radius: 2px;
+	color: #FFF;
+	position: relative;
+	margin-left: 3.5%;
+}
+
+.opc:hover{
+	background-color: #F68F0B;
+	color: #FFF;
+}
+
+.texto{
+	padding-top: 18%;
+	display: inline-table;
+	font-family: Segoe UI Light;
+}
+
+.icono{
+    float: right;
+	margin-right: 7.5%;
+	margin-top: 40px;
+}

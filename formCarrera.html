@@ -1,0 +1,97 @@
+<html>
+
+<!--
+*@Sistema de titulación UAO
+*@versión: 3.0      
+*@modificado: 14 de Septiembre del 2013
+*@autor back-end: Saúl David López Delgado
+*@autor front-end: Gerardo Ideyoshi Ruiz Ventura
+-->
+
+<head>
+
+	<title>Formulario de Carreras</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="language" content="es" />
+
+	<link rel="stylesheet" type "text/css" href = "./bootstrap/css/bootstrap.css">
+  	<link rel="stylesheet" type="text/css" href="./estilos/style_form_carreras.css">
+
+	<script type="text/javascript" src="./jQuery/jQuery.js"></script>
+	<script type="text/javascript" src="./jQuery/scriptConfig.js"></script>
+  	<script type="text/javascript" src="./jQuery/scriptCarreras.js"></script>
+  	<script type="text/javascript" src="./jQuery/scriptNuevaCarrera.js"></script>
+  	<script type="text/javascript" src="./jQuery/scriptEditarCarreras.js"></script>
+    
+</head>
+
+<body>
+
+	<div id="todo">
+
+			<div id="div_regresar2">
+						<div id="botonatras" style="cursor:pointer">	<div id="textoatras">Atrás</div>	    </div>    
+
+						<div id="iconoatras" style="cursor:pointer">	<img src="./iconos/back.png">	</div>
+			</div>
+
+			<div class="titulo2">Catálogo de Carreras</div>
+
+					<form class="form-horizontal" method="post">
+
+							<div class="control-group">
+								<label class="control-label"> Carrera</label>
+									<div class="controls">
+										<input type = "text" name="carrera" required id="carrera">
+									</div>
+							</div>
+
+							<div class="control-group">
+								<label class="control-label"> Identificador de Area</label> 
+									<div class="controls">
+										<input type = "text" name="area" maxlength="1" required  id="area">
+									</div>
+							</div>
+
+							<div class="control-group">
+								<label class="control-label"> Identificador de Sub Area</label> 
+									<div class="controls">
+										<input type = "text" name="subArea" maxlength="2" required id="subArea">
+									</div>
+							</div>
+
+							<div class="control-group">
+								<label class="control-label"> Identificador de Nivel</label> 
+									<div class="controls">
+										<input type = "text" name="nivel" 	maxlength="1" required id="nivel">
+									</div>
+							</div>
+
+							<div class="control-group">	
+								<label class="control-label"> Consecutivo</label>
+									<div class="controls">
+										<input type = "text" name="consecutivo" maxlength="2" required id="consecutivo">
+									</div>
+							</div>
+
+							<div id="aviso"></div>
+					</form>
+
+			<div id="div_guardar">
+                <div id="botonguardar" style="cursor:pointer"><div id="textoguardar">Guardar</div></div>    <div id="iconoguardar" style="cursor:pointer"><img src="./iconos/32/guardar.png"></div>
+          	</div>
+
+          	
+
+            <!--VISTA DE CARRERAS-->
+
+          	<div id="tabla_vista"></div>
+
+       		<div id="window"></div>
+      		<div id="fondo"></div>
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+/*HOJA DE ESTILOS DEL MENU CATÁLOGOS*/
+
+#div_opc{
+	background: #FAFAFA;
+	height: 100%;
+}
+
+#opciones{
+	padding-top: 15em;
+}
+
+.opc{
+	background-color: #D42B1E;
+	width: 28%;
+	height: 22%;
+	font-size: 200%;
+	text-align: center;
+	display: inline-table;
+	margin-top: 30px;
+	border-radius: 2px;
+	color: #FFF;
+	position: relative;
+}
+
+.opc:hover{
+	background-color: #F68F0B;
+	color: #FFF;
+}
+
+.texto{
+	padding-top: 60px;
+	display: inline-table;
+	font-family: Segoe UI Light;
+}
+
+.icono{
+    float: right;
+	margin-right: 60px;
+	margin-top: 40px;
+}
+
+/*DIV CONTENEDOR DEL BOTÓN REGRESAR*/
+
+#div_regresar{
+	float: right;
+	width: 125px;
+	padding-top: 3%;
+  	margin-right: 12%;
+}
+
+#botonatras{
+	background-color: #10151C;
+	width: 90px;
+	height: 35px;
+	float: right;
+	position: relative;
+}
+
+#iconoatras{
+	background-color: #D42B1E;
+	width: 35px;
+	height: 35px;
+	float: right;
+	position: relative;
+}
+
+#textoatras{
+	padding-top: 7px;
+	padding-left: 26px;
+	font-size: 18px;
+	color: #fff;
+}

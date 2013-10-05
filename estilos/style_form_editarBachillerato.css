@@ -1,0 +1,113 @@
+/*HOJA DE ESTILOS DEL FORMULARIOR PARA EDITAR BACHILLERATOS*/
+
+#todo{
+  background: #FAFAFA;
+  height: 100%;
+  margin-left: 4%;
+}
+
+.titulo3{
+    line-height: 1.5;
+    color: #000;
+    text-align: left;   
+    font-size: 24px;
+    padding-top: 2%;
+    font-family: Segoe UI Light;
+    margin-bottom: 20px;
+    margin-left: 4%;
+}
+
+#formulario{
+  margin-left: 7%;
+}
+
+#preparatoria{
+  width: 220%;
+}
+
+
+/*PARA EL BOTON DE CERRAR*/
+
+#div_cerrar{
+  float: right;
+  width: 125px;
+  padding-top: 3%;
+  margin-right: 13%;
+}
+
+#botoncerrar{
+  background-color: #10151C;
+  width: 90px;
+  height: 35px;
+  float: right;
+  position: relative;
+}
+
+#iconocerrar{
+  background-color: #D42B1E;
+  width: 35px;
+  height: 35px;
+  float: right;
+  position: relative;
+}
+
+#textocerrar{
+  padding-top: 7px;
+  padding-left: 21px;
+  font-size: 18px;
+  color: #fff;
+}
+
+/*PARA EL BOTON DE GUARDAR*/
+
+/*DIV CONTENEDOR*/
+#div_guardar2{
+  position: inherit;
+  float: left;
+  width: 195px;
+  padding-top: 2%;
+  margin-left: 9%;
+  padding-bottom: 5%;
+}
+
+#iconoguardar{
+  background-color: #FFB900;
+  width: 35px;
+  height: 35px;
+  float: right;
+  position: relative;
+}
+
+#botonguardar{
+  background-color: #10151C;
+  width: 160px;
+  height: 35px;
+  float: right;
+  position: relative;
+}
+
+#textoguardar{
+  padding-top: 7px;
+  padding-left: 14px;
+  font-size: 18px;
+  color: #fff;
+}
+
+#tabla_vista{
+    background: white;
+    margin-top: 10%;
+    margin-right: 8%;
+}
+
+.avisoexito{
+  font-size: 18px;
+  font-style: Segoe UI;
+  font-weight: bold;
+  color: green;
+  margin-left: 40%;
+}
+
+.avisofallo{
+  font-weight: bold;
+  color: red;
+}
