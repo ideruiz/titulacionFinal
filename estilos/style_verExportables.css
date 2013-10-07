@@ -1,0 +1,20 @@
+#todo{
+	background: #FAFAFA;
+	height: 100%;
+	overflow: auto;
+ }
+
+#tabla{
+	position: relative;
+	float: left;
+	background-color:white;
+	margin-left: 2em;
+	margin-right: 2em;
+	margin-top: 3em;
+}
+
+#btn-descargar{
+	float: left;
+	margin-left: 3em;
+	margin-top: 1em;
+}
