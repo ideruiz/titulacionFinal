@@ -32,8 +32,8 @@
 
     <div id="todo">
 
-      <div id="btn-descargar">  
-          <input class="btn btn-large btn-primary" type="button" value="Descargar" onclick="location.href='Exportables/exportableTitulacion.xlsx';">
+      <div class="btn-descargar">  
+          <input class="btn btn-large btn-primary" id="btn-descargarTit"type="button" value="Descargar" onclick="location.href='Exportables/exportableTitulacion.xlsx';">
       </div>
 
 	   <div id="tabla">

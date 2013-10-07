@@ -39,8 +39,8 @@
 
       <div id="todo">
 
-          <div id="btn-descargar">  
-              <input class="btn btn-large btn-primary" type="button" value="Descargar" onclick="location.href='Exportables/exportableCertificacion.csv';">
+          <div class="btn-descargar">  
+              <input class="btn btn-large btn-primary" id="btn-descargarCed" type="button" value="Descargar" onclick="location.href='Exportables/exportableCertificacion.csv';">
           </div>
 
       	  <div id="tabla">
