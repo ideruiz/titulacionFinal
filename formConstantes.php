@@ -39,6 +39,15 @@ else
 </head>
 
 <body>
+	<?php 
+			include_once('Clases/Conexion.php');
+			$conexion = new Conexion();
+
+			$sql = "SELECT * FROM constantes WHERE id_constantes='1'";
+			$result=$conexion->consulta($sql);
+			$C = mysqli_fetch_array($result);
+
+	 ?>
 
 	<div id="todo">
 			<div id="div_regresar">
@@ -56,56 +65,56 @@ else
 						<div class="control-group">
 	                            <label class="control-label"> Universidad </label>
 	                            <div class="controls">
-	                                    <input type = "text" name="universidad" id="universidad" placeholder="Nombre de la Universidad">
+	                            	<input type = "text" name="universidad" id="universidad" value="<?php ECHO $C['institucion'];?>">
 	                            </div>
 	                    </div>
 
 	                    <div class="control-group">
 	                            <label class="control-label"> Entidad </label>
 	                            <div class="controls">
-	                                    <input type = "text" name="entidad" id="entidad" placeholder="Entidad Federativa de la Universidad">
+	                                    <input type = "text" name="entidad" id="entidad" value="<?php ECHO $C['entidad_institucion'];?>">
 	                            </div>
 	                    </div>
 
 	                    <div class="control-group">
 	                            <label class="control-label"> Identificador de la Entidad </label>
 	                            <div class="controls">
-	                                    <input  onkeypress='return justNumbers(event);' type = "text" name="id_entidad" id="id_entidad" placeholder="20" maxlength="2">
+	                                    <input  onkeypress='return justNumbers(event);' type = "text" name="id_entidad" id="id_entidad" value="<?php ECHO $C['i_estado_institucion'];?>" maxlength="2">
 	                            </div>
 	                    </div>
 
 	                    <div class="control-group">
 	                            <label class="control-label"> Consecutivo de la institucion </label>
 	                            <div class="controls">
-	                                    <input type = "text" name="c_institucion" id="c_institucion" placeholder="" maxlength="4">
+	                                    <input type = "text" name="c_institucion" id="c_institucion" value="<?php ECHO $C['consecutivo_institucion'];?>" maxlength="4">
 	                            </div>
 	                    </div>
 
 	                    <div class="control-group">
 	                            <label class="control-label"> Código para Licenciatura y Maestría </label>
 	                            <div class="controls">
-	                                    <input type = "text" name="LicMaster" id="LicMaster" placeholder="C1" maxlength="2">
+	                                    <input type = "text" name="LicMaster" id="LicMaster" value="<?php ECHO $C['codigo_LicMaster'];?>" maxlength="2">
 	                            </div>
 	                    </div>
 
 	                    <div class="control-group">
 	                            <label class="control-label"> Rector de la Universidad </label>
 	                            <div class="controls">
-	                                    <input type = "text" name="rector" id="rector" placeholder="Nombre del Rector">
+	                                    <input type = "text" name="rector" id="rector" value="<?php ECHO $C['nombre_rector'];?>">
 	                            </div>
 	                    </div>
 
 	                    <div class="control-group">
 	                            <label class="control-label"> Administracion Escolar </label>
 	                            <div class="controls">
-	                                    <input type = "text" name="admin_escolar" id="admin_escolar" placeholder="Nombre del Jefe del Departamento">
+	                                    <input type = "text" name="admin_escolar" id="admin_escolar" value="<?php ECHO $C['admin_escolar'];?>">
 	                            </div>
 	                    </div>
 
 	                    <div class="control-group">
 	                            <label class="control-label"> Fecha de Examen Profesional </label>
 	                            <div class="controls">
-	                                    <input type = "text" name="e_profesional" id="e_profesional" placeholder="Excencion">
+	                                    <input type = "text" name="e_profesional" id="e_profesional" value="<?php ECHO $C['ex_profesional'];?>">
 	                            </div>
 	                    </div>
 	            </form>
@@ -117,7 +126,7 @@ else
 	                    <div class="control-group">
 	                            <label class="control-label"> Lugar de Certificacion </label>
 	                            <div class="controls">
-	                                    <input type = "text" name="l_certificacion" id="l_certificacion">
+	                                    <input type = "text" name="l_certificacion" id="l_certificacion" value="Cuilapam de Guerrero, Oaxaca">
 	                            </div>
 	                    </div>
 
@@ -181,7 +190,7 @@ else
 						<div class="control-group">
 			                            <label class="control-label"> Lugar de Expedicion de Titulo</label>
 			                            <div class="controls">
-											<input type = "text" size="40"name="l_titulacion" id="l_titulacion">
+											<input type = "text" size="40"name="l_titulacion" id="l_titulacion" value="Cuilapam de Guerrero, Oaxaca">
 										</div>
 						</div>
 

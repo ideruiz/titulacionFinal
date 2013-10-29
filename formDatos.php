@@ -42,18 +42,24 @@
 				
 				<div class="titulo2">
 					<?php 
-						//$array = array_keys($_POST);
-						//$alumno= $array['0'];
-						//var_dump($_POST);
-						//$alumno= $_POST['alumno'];
+
 						ECHO "<div id='Alumno'>$alumno</div>";
 
-						$sql="SELECT nombre, a_paterno, a_materno FROM titulacion WHERE fk_alumno='$alumno'";			
+						$sql="SELECT * FROM titulacion WHERE fk_alumno='$alumno'";
 						$result=$conexion->consulta($sql);
-
-						while ($row=mysqli_fetch_array($result)){
+						$row=mysqli_fetch_array($result);
 							ECHO "$row[nombre] $row[a_paterno] $row[a_materno]";
-						}	
+
+
+						$sql="SELECT * FROM profesionista WHERE fk_alumno='$alumno'";
+						$result=$conexion->consulta($sql);
+						$prof=mysqli_fetch_array($result);
+
+
+						$sql="SELECT estado FROM estado WHERE numero = '$prof[entidad_nacimiento]'";
+						$result=$conexion->consulta($sql);
+						$estado=mysqli_fetch_array($result);
+						
 					 ?>
 				</div>
 
@@ -69,28 +75,28 @@
 			                  			<div class="control-group">
 				                  			<label class="control-label"> Nombre(s) </label>
 				                  			<div class="controls">
-												<input type="text" placeholder="" name="nombre" id="name">
+												<input type="text" value="<?php ECHO $row['nombre'];?>" name="nombre" id="name">
 											</div> 	
 										</div> 
 
 										<div class="control-group">
 				                  			<label class="control-label"> Apellido Paterno </label>
 				                  			<div class="controls">
-													<input type="text" placeholder="" name="paterno" id="paterno">
+													<input type="text" value="<?php ECHO $row['a_paterno'];?>" name="paterno" id="paterno">
 											</div> 	
 										</div>
 
 										<div class="control-group">
 				                  			<label class="control-label"> Apellido Materno </label>
 				                  			<div class="controls">
-													<input type="text" placeholder="" name="materno" id="materno">
+													<input type="text"  value="<?php ECHO $row['a_materno'];?>" name="materno" id="materno">
 											</div> 	
 										</div>
 
 										<div class="control-group">
 				                  			<label class="control-label"> CURP </label>
 				                  			<div class="controls">
-													<input type="text" placeholder="" name="curp" id="curp" maxlength='18'>
+													<input type="text" value="<?php ECHO $row['curp'];?>" name="curp" id="curp" maxlength='18'>
 											</div> 	
 										</div>
 
@@ -101,24 +107,26 @@
 										<div class="control-group">
 				                  			<label class="control-label" id="ent">Entidad de Nacimiento</label>	
 				                  			<div class="controls">	
-													<?php 
-														$sql="SELECT estado,numero FROM estado";
-														$result = $conexion->consulta($sql);
+				                  				<?php 
+													
+													$sql="SELECT estado from estado";
+													$result = $conexion->consulta($sql);
 
-														ECHO "<select id='entidad'>";
-															ECHO "<option>Estado</option>";
-															while($row=mysqli_fetch_array($result)){
-																ECHO "<option name='entidad' value='$row[numero]'>".$row['estado']."</option>";
-															}				
-														ECHO "</select>";
-													?>
+													ECHO "<input list='estados' name='edo' id='estadoInput' value='$estado[estado]'>";
+													
+													ECHO "<datalist id='estados'>";
+														while($row=mysqli_fetch_array($result)){
+															ECHO "<option name='estado' value='$row[estado]'>".$row['estado']."</option>";
+														}				
+													ECHO "</datalist>";
+												?>
 											</div> 	
 										</div>
 
 										<div class="control-group">
 				                  			<label class="control-label" id="cod"> Código del país </label>	
 				                  			<div class="controls">
-													<input type="text" onkeypress='return justNumbers(event);' placeholder="003" name="p_radica" id="p_radica" maxlength="3">
+													<input type="text" onkeypress='return justNumbers(event);' value="003" name="p_radica" id="p_radica" maxlength="3">
 											</div> 	
 										</div>
 
@@ -126,27 +134,40 @@
 				                  			<label class="control-label" id="nac"> Fecha de Nacimiento </label>	
 				                  			<div class="controls">
 				                  					<!--DIA-->
-													<select name="dia" id="nacimiento_dia">
+				                  					
+													<select name="dia" id="nacimiento_dia">														
+														
 														<?php
+														$dd= $prof['fecha_nacimiento'];
+														$a=$dd[0].$dd[1].$dd[2].$dd[3];
+														$m=$dd[4].$dd[5];
+														$d=$dd[6].$dd[7];
+														
+														ECHO "<option value='$dd'>$d</option>";
+														
 															for($d=1;$d<=31;$d++){
 																if($d<10)
 																	$dd = "0" . $d;
 																	else
 																		$dd = $d;
-																	echo "<option value='$dd'>$dd</option>";
+																	ECHO "<option value='$dd'>$dd</option>";
 																}
 															?>
 													</select>
 													<!--MES-->	
+													
 													<select name="mes" id="nacimiento_mes">
+
 														<?php
-															for($m = 1; $m<=12; $m++)
+															
+
+															for($me = 1; $me<=12; $me++)
 															{
-																if($m<10)
-																	$me = "0" . $m;
+																if($me<10)
+																	$m = "0" . $me;
 																else
-																	$me = $m;
-																switch($me)
+																	$m = $me;
+																switch($m)
 																{
 																	case "01": $mes = "Enero"; break;
 																	case "02": $mes = "Febrero"; break;
@@ -161,17 +182,20 @@
 																	case "11": $mes = "Noviembre"; break;
 																	case "12": $mes = "Diciembre"; break;			
 																}
-																echo "<option value='$me'>$mes</option>";
+																echo "<option value='$m'>$mes</option>";
 															}
+
 														?>
 													</select> 
 													<!--AÑO-->
 													<select name="anio" id="nacimiento_anio">
+
 														<?php
+														echo "<option value='$a'>$a</option>"; 
 															$tope = date("Y");
 															$edad_max = 45;
 															$edad_min = 18;
-															for($a= $tope - $edad_max; $a<=$tope - $edad_min; $a++)
+															for($a= $tope - $edad_min; $a>=$tope - $edad_max; $a--)
 																echo "<option value='$a'>$a</option>"; 
 														?>
 													</select>
@@ -182,13 +206,47 @@
 											<div class="control-group">
 				                  					<label class="control-label" id="s"> Sexo </label>
 				                  					<div class="controls">
-					                  					<label class="radio" id="h2">
-																<input type="radio" id="h" onclick="verificaSexo(1)">Hombre
-														</label>
+				                  						<?php 
+						                  						if($prof['sexo']=='2'){
+						                  							ECHO "
+						                  								<label class='radio' id='m2'>
+																			<input type='radio' id='m' onclick='verificaSexo(2)' checked>Mujer
+																		</label>
+																		<label class='radio' id='h2'>
+																			<input type='radio' id='h' onclick='verificaSexo(1)' >Hombre
+																		</label>
+						                  							";
+						                  							
+						                  						}
 
-														<label class="radio" id="m2">
-															<input type="radio" id="m" onclick="verificaSexo(2)">Mujer
-														</label>
+						                  						if($prof['sexo']=='1'){
+						                  							ECHO "
+						                  								<label class='radio' id='m2'>
+																			<input type='radio' id='m' onclick='verificaSexo(2)' >Mujer
+																		</label>
+
+						                  								<label class='radio' id='h2'>
+																			<input type='radio' id='h' onclick='verificaSexo(1)' checked>Hombre
+																		</label>
+						                  							";						                  							
+						                  						}
+
+						                  						if($prof['sexo']==''){
+						                  							ECHO "
+																		<label class='radio' id='h2'>
+																			<input type='radio' id='h' onclick='verificaSexo(1)'>Hombre
+																		</label>
+
+																		<label class='radio' id='m2'>
+																			<input type='radio' id='m' onclick='verificaSexo(2)'>Mujer
+																		</label>
+										                  			";						                  							
+										                  		}
+						                  						
+				                  						?>
+				                  						
+					                  					
+													
 													</div>
 											</div>
 									</div>
@@ -208,15 +266,23 @@
 				                  			<label class="control-label"> Preparatoria </label>
 				                  			<div class="controls">
 												<?php 
+												$sql="SELECT * FROM titulacion WHERE fk_alumno='$alumno'";
+												$result=$conexion->consulta($sql);
+												$tit=mysqli_fetch_array($result);
+
+												$periodo = explode("-", $tit['periodo_bachillerato']);
+												$tam = count($periodo);
+												
 													$sql="SELECT nombre_preparatoria,entidad_preparatoria FROM Preparatoria";
 													$result = $conexion->consulta($sql);
-
-													ECHO "<select id='prepas'>";
-														ECHO "<option>Preparatoria</option>";
+													
+													ECHO "<input list='prepas' name='bach' id='prepaInput' value='$tit[nombre_bachillerato]"."-"."$tit[entidad_bachillerato]'>";
+													
+													ECHO "<datalist id='prepas'>";
 														while($row=mysqli_fetch_array($result)){
-															ECHO "<option name='prepa' value='$row[nombre_preparatoria]".","."$row[entidad_preparatoria]'>".$row['nombre_preparatoria']." - "."$row[entidad_preparatoria]"."</option>";
+															ECHO "<option name='prepa' value='$row[nombre_preparatoria]"."-"."$row[entidad_preparatoria]'>".$row['nombre_preparatoria']." - "."$row[entidad_preparatoria]"."</option>";
 														}				
-													ECHO "</select>";
+													ECHO "</datalist>";
 												?>
 											</div> 	
 										</div> 
@@ -224,14 +290,23 @@
 										<div class="control-group">
 				                  			<label class="control-label"> Año de Inicio </label>
 				                  			<div class="controls">
-													<input onkeypress='return justNumbers(event);' id='prepaI' name='prepaI' maxlength="4">
+													<input onkeypress='return justNumbers(event);' id='prepaI' name='prepaI' maxlength="4" value="<?php  ECHO $periodo[0]; ?>">
 											</div> 	
 										</div> 
 
 										<div class="control-group">
 				                  			<label class="control-label"> Año de Término </label>
 				                  			<div class="controls">
-													<input onkeypress='return justNumbers(event);' id='prepaF' name='prepaF' maxlength="4">
+				                  				<?php 
+				                  				if($tam==1){
+				                  					ECHO "<input onkeypress='return justNumbers(event);' id='prepaF' name='prepaF' maxlength='4' >";
+				                  				}
+				                  				else
+				                  					ECHO "<input onkeypress='return justNumbers(event);' id='prepaF' name='prepaF' maxlength='4' value='$periodo[1]'>";
+				                  					
+				                  				 ?>
+
+													
 											</div> 	
 										</div> 
 									</div>
@@ -255,8 +330,14 @@
 													$sql="SELECT nombre_carrera FROM carrera";
 													$result = $conexion->consulta($sql);
 
+													//ECHO "$tit[carrera]";
+													$periodo_C = explode("-", $tit['periodo_carrera']);
+													$t = count($periodo_C);
+													
+
 													ECHO "<select id='carreras'>";
-														ECHO "<option>Licenciatura</option>";
+														//ECHO "<option>Licenciatura</option>";
+														ECHO "<option name='carrera' value='$tit[carrera]'>".$tit['carrera']."</option>";
 														while($row=mysqli_fetch_array($result)){
 															ECHO "<option name='carrera' value='$row[nombre_carrera]'>".$row['nombre_carrera']."</option>";
 														}
@@ -268,20 +349,71 @@
 										<div class="control-group">
 				                  			<label class="control-label"> Año de Inicio </label>
 				                  			<div class="controls">		
-													<input onkeypress='return justNumbers(event);' id='carreraI' name='carreraI' maxlength="4">
+													<input onkeypress='return justNumbers(event);' id='carreraI' name='carreraI' maxlength="4" value="<?php  ECHO $periodo_C[0]; ?>">
 											</div> 	
 										</div> 
 
 										<div class="control-group">
 				                  			<label class="control-label"> Año de Término </label>
 				                  			<div class="controls">
-													<input onkeypress='return justNumbers(event);' id='carreraF' name='carreraF' maxlength="4">
+				                  				<?php 
+				                  				if($t==1){
+				                  					ECHO "<input onkeypress='return justNumbers(event);' id='carreraF' name='carreraF' maxlength='4' >";
+				                  				}
+				                  				else
+				                  					ECHO "<input onkeypress='return justNumbers(event);' id='carreraF' name='carreraF' maxlength='4' value='$periodo_C[1]'>";
+				                  					
+				                  				 ?>
+													
 											</div> 	
 										</div>
 
 										<div class="control-group">
 				                  					<label class="control-label" id="tt"> Tipo de Titulación: </label>
 				                  					<div class="controls">
+				                  						<?php 
+
+				                  							if ($tit['tipo_titulacion']=='1'){
+				                  								ECHO "
+				                  								<label class='radio' id='uno1'>
+																	<input type='radio' id='uno' onclick='verificaCheckbox(1)' checked>Normal
+																</label>
+
+																<label class='radio' id='dos2'>
+																	<input type='radio' id='dos' onclick='verificaCheckbox(2)'>Mencion Honorífica
+																</label>
+
+				                  								";
+
+				                  							}
+				                  							if ($tit['tipo_titulacion']=='2'){
+				                  								ECHO "
+				                  								<label class='radio' id='uno1'>
+																	<input type='radio' id='uno' onclick='verificaCheckbox(1)'>Normal
+																</label>
+
+																<label class='radio' id='dos2'>
+																	<input type='radio' id='dos' onclick='verificaCheckbox(2)' checked>Mencion Honorífica
+																</label>
+
+				                  								";
+				                  								
+				                  							}
+				                  							if ($tit['tipo_titulacion']==''){
+				                  								ECHO "
+				                  								<label class='radio' id='uno1'>
+																	<input type='radio' id='uno' onclick='verificaCheckbox(1)'>Normal
+																</label>
+
+																<label class='radio' id='dos2'>
+																	<input type='radio' id='dos' onclick='verificaCheckbox(2)'>Mencion Honorífica
+																</label>
+
+				                  								";
+				                  								
+				                  							}
+				                  						 ?>
+				                  						 <!--
 					                  					<label class="radio" id="uno1">
 																<input type="radio" id="uno" onclick="verificaCheckbox(1)">Normal
 														</label>
@@ -289,6 +421,7 @@
 														<label class="radio" id="dos2">
 															<input type="radio" id="dos" onclick="verificaCheckbox(2)">Mencion Honorífica
 														</label>
+													-->
 													</div>
 											</div>
 									</div>
@@ -302,19 +435,20 @@
 
 		                  		<fieldset><legend> Control </legend>
 
-		                  			<div class="columnaizq">
+			                  			<div class="control-group" id="foja1">
+				                  			<label class="control-label"> Foja </label>
+				                  			<div class="controls">		
+													<input onkeypress='return justNumbers(event);' type="text" placeholder="" id="foja" name="foja" maxlength="3" value="<?php  ECHO $tit['foja']; ?>">
+											</div>
+										</div>
 
-			                  			<div class="control-group">
-				                  			<label class="control-label" id="foja1"> Foja </label>
+										<div class="control-group" id="libro1">
+				                  			<label class="control-label"> Libro </label>
 				                  			<div class="controls">		
-													<input onkeypress='return justNumbers(event);' type="text" placeholder="" id="foja" name="foja" maxlength="3">
-											
-				                  			<label class="control-label" id="libro1"> Libro </label>
-				                  			<div class="controls">		
-													<input onkeypress='return justNumbers(event);' type="text" placeholder="" id="libro" name="libro" maxlength="3">
+													<input onkeypress='return justNumbers(event);' type="text" placeholder="" id="libro" name="libro" maxlength="3" value="<?php  ECHO $tit['libro']; ?>">
 											</div> 	
 										</div> 
-									</div>
+								
 								</fieldset> 
 						</div>
 				</form>
@@ -397,10 +531,10 @@
 				                  			<label class="control-label">Lugar y Fecha de Certificación</label>
 				                  				<div class="controls">
 												<?php 
-													$sql="SELECT exp_certificado FROM constantes";
+													$sql="SELECT certificacion FROM titulacion";
 													$result=$conexion->consulta($sql);
 													$dato=mysqli_fetch_array($result);
-													ECHO "<input type='text' placeholder='$dato[0]' id='certificacion' name='certificacion' disabled>";
+													ECHO "<input type='text' value='$dato[0]' id='certificacion' name='certificacion' disabled>";
 												?>
 												</div>
 										</div>
@@ -409,10 +543,10 @@
 				                  			<label class="control-label">Campus y Fecha de Expedición de Título</label>
 				                  				<div class="controls">
 												<?php 
-													$sql="SELECT exp_titulo FROM constantes";
+													$sql="SELECT exp_titulo FROM titulacion";
 													$result=$conexion->consulta($sql);
 													$dato=mysqli_fetch_array($result);
-													ECHO "<input type='text' placeholder='$dato[0]' id='titulacion' name='titulacion' disabled>";
+													ECHO "<input type='text' value='$dato[0]' id='titulacion' name='titulacion' disabled>";
 												?>
 												</div>
 										</div>

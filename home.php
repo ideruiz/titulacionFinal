@@ -19,11 +19,12 @@
 
 <head>
 	
-	<title>Inicio</title>
+	<title>Sistema de Titulación UAO</title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="language" content="es" />
 
+    <link rel="shortcut icon" href="./iconos/32/favicon2.png">
     <link rel="stylesheet" type "text/css" href = "./bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="./estilos/style_home.css">
 
@@ -33,7 +34,7 @@
 </head>
 
 
-<body>
+<body oncontextmenu="return false">
 	<div>
 
 		<!-- DIV DE LA BARRA -->

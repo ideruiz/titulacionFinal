@@ -1,4 +1,4 @@
-/*HOJA DE ESTILOS DEL MENU CATÁLOGOS*/
+/*HOJA DE ESTILOS DEL MENU EXPORTABLES*/
 
 #div_opc{
 	background: #FAFAFA;
@@ -11,8 +11,8 @@
 
 .opc{
 	background-color: #D42B1E;
-	width: 28%;
-	height: 22%;
+	width: 12em;
+	height: 5em;
 	font-size: 200%;
 	text-align: center;
 	display: inline-table;
@@ -69,4 +69,20 @@
 	padding-left: 26px;
 	font-size: 18px;
 	color: #fff;
+}
+
+.btn-terminar{
+	float: left;
+	margin-left: 40%;
+	margin-top: 3em;
+}
+
+#aviso{
+  float: left;
+  font-size: 18px;
+  font-style: Segoe UI;
+  font-weight: bold;
+  color: green;
+  margin-left: 28%;
+  margin-top: 1.6em;
 }

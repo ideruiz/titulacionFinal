@@ -19,18 +19,15 @@
 
 	<script type="text/javascript" src="./jQuery/jQuery.js"></script>
 	<script type="text/javascript" src="./jQuery/scriptExportables.js"></script>
+	<script type="text/javascript" src="./jQuery/scriptHistorial.js"></script>
 
 	
 	
 </head>
 
-<body>
+<body oncontextmenu="return false">
 
 		<div id="div_opc">
-
-			<div id="div_regresar">
-					<div id="botonatras" style="cursor:pointer"><div id="textoatras">Atrás</div></div>    <div id="iconoatras" style="cursor:pointer"><img src="./iconos/back.png"></div>
-			</div>
 
 			<div id="opciones"align=center>
 					<div id="titulacion"   class="opc" style="cursor:pointer" > 
@@ -42,7 +39,18 @@
 							<div class=texto> 		Cédula 							   </div>
 							<div class="icono">		<img src="./iconos/64/download_w.png">  </div>       
 					</div>
+
+					<div id="historial" 	   class="opc" style="cursor:pointer" > 
+							<div class=texto> 		Historial 							   </div>
+							<div class="icono">		<img src="./iconos/64/historial_w.png">  </div>       
+					</div>
+
+					<div class="btn-terminar">  
+          				<input class="btn btn-large btn-primary" id="btn-terminar" type="button" value="Finalizar proceso de Titulación" >
+      				</div>
 			</div>
+
+			<div id="aviso"></div>
 			
 		</div>
 

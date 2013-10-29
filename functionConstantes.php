@@ -33,8 +33,7 @@
 
 	$constantes = new Constantes($Conn);
 
-	//$datos = $constantes->nuevasConstantes($universidad,$entidad,$rector,$admin_escolar,$e_profesional,$f_certificacion,$f_titulacion);
-	$datos = $constantes->nuevasConstantes($universidad,$entidad,$id_entidad,$c_institucion,$LicMaster,$rector,$admin_escolar,$e_profesional,$f_certificacion,$f_titulacion);
+	$datos = $constantes->actualizarConstantes($universidad,$entidad,$id_entidad,$c_institucion,$LicMaster,$rector,$admin_escolar,$e_profesional,$f_certificacion,$f_titulacion);
 
 	if($datos){
 		ECHO "Datos cargados";

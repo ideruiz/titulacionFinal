@@ -233,14 +233,15 @@ body {
 }
 
 a {
-  color: #0088cc;
+  color: #fff;
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color: #005580;
+  color: #fff;
   text-decoration: underline;
+  font-weight: bold;
 }
 
 .img-rounded {
@@ -3368,12 +3369,12 @@ input[type="button"].btn-block {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #006dcc;
-  *background-color: #0044cc;
-  background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
-  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
-  background-image: -o-linear-gradient(top, #0088cc, #0044cc);
-  background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+  *background-color: #496480;
+  background-image: -moz-linear-gradient(top, #0088cc, #496480);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#496480));
+  background-image: -webkit-linear-gradient(top, #0088cc, #496480);
+  background-image: -o-linear-gradient(top, #0088cc, #496480);
+  background-image: linear-gradient(to bottom, #0088cc, #496480);
   background-repeat: repeat-x;
   border-color: #0044cc #0044cc #002a80;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
@@ -3388,7 +3389,7 @@ input[type="button"].btn-block {
 .btn-primary.disabled,
 .btn-primary[disabled] {
   color: #ffffff;
-  background-color: #0044cc;
+  background-color: #496480;
   *background-color: #003bb3;
 }
 

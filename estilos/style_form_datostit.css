@@ -58,21 +58,17 @@
   width: 5em; 
 }
 
-#prepas{
-  margin-left: -0.25%;
-  width: 38em;
+#prepas,#prepaInput{
+  width: 44em;
 }
 
 #prepaI, #prepaF, #carreraI, #carreraF, #libro, #foja{
   width: 3em;
 }
 
-#foja1, #libro1 {
-  margin-left: -3em;
-}
 
 #carreras{
-  width: 25em;
+  width: 29em;
   margin-left: -0.25%;
 }
 
@@ -92,7 +88,7 @@ select{
 }
 
 #certificacion, #titulacion{
-  width: 25em;
+  width: 27em;
   margin-top: 2%;
 }
 
@@ -139,7 +135,7 @@ select{
   width: 125px;
   padding-top: 2%;
   margin-right: 20%;
-  padding-bottom: 3%;
+  padding-bottom: 2em;
 }
 
 #iconoguardar{
@@ -163,4 +159,21 @@ select{
 	padding-left: 14px;
 	font-size: 18px;
 	color: #fff;
+}
+
+.avisoexito{
+  position:relative;
+  float: left; 
+  width: 28em;
+  background-color: #F68F0B; 
+  color:white;
+  margin-top: 1em; 
+  font-size: 1.4em;
+  font-weight: bold;
+  text-align:center;
+  margin-left: 7em;
+  margin-bottom: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  
 }

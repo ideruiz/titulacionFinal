@@ -27,7 +27,7 @@
 #div_cerrar{
   float: right;
   width: 125px;
-  padding-top: 3%;
+  margin-top: 3%;
   margin-right: 13%;
 }
 
@@ -57,13 +57,14 @@
 /*PARA EL BOTON DE GUARDAR*/
 
 /*DIV CONTENEDOR*/
-#div_guardar{
+#div_editar{
   position: inherit;
-  float: right;
-  width: 125px;
-  padding-top: 2%;
-  margin-right: 25%;
-  padding-bottom: 5%;
+  float: left;
+  width: 195px;
+  height: 35px;
+  margin-top: 2%;
+  margin-left: 9%;
+  margin-bottom: 5%;
 }
 
 #iconoguardar{
@@ -76,7 +77,7 @@
 
 #botonguardar{
   background-color: #10151C;
-  width: 90px;
+  width: 160px;
   height: 35px;
   float: right;
   position: relative;

@@ -18,6 +18,11 @@
     <link rel="stylesheet" type = "text/css" href="./bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="./estilos/style_verExportables.css">
 
+    <script type="text/javascript" src="./jQuery/jQuery.js"></script>
+    <script type="text/javascript" src="./jQuery/scriptConfig.js"></script>
+    <script type="text/javascript" src="./jQuery/scriptExportables.js"></script>
+
+
 </head>
 
 <body>
@@ -25,6 +30,10 @@
   	<?php
   		include_once("Clases/Conexion.php");
   		$conexion = new Conexion();
+
+      function convierteMayus($str){
+        return strtr(strtoupper($str),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+      }
 
       function llenaCeros($str){
 
@@ -39,13 +48,21 @@
 
       <div id="todo">
 
-          <div class="btn-descargar">  
-              <input class="btn btn-large btn-primary" id="btn-descargarCed" type="button" value="Descargar" onclick="location.href='Exportables/exportableCertificacion.csv';">
+          <div id="div_regresar3">
+            <div id="botonatras" style="cursor:pointer">  <div id="textoatras">Atrás</div>      </div>    
+
+            <div id="iconoatras" style="cursor:pointer">  <img src="./iconos/back.png"> </div>
           </div>
 
-      	  <div id="tabla">
-          		<table class="table table-hover" border = "1" style="background-color: #10151C; color:white;">
-                        <thead>
+          <div class="btn-descargar">  
+              <input class="btn btn-large btn-primary" id="btn-descargarCed" type="button" value="Descargar" >
+          </div>
+
+          <div id="aviso"></div>
+
+      	  <div id="tabla2">
+          		<table class="table table-hover" id="tabla2" border = "1">
+                        <thead style="background-color: #10151C; color:white;">
                           <tr>
                             <th>CURP</th>
                             <th>Apellido Paterno</th>
@@ -67,13 +84,15 @@
                               <th>extra 1</th>
                               <th>extra 2</th>
                             -->
-                            <th></th>
+                            
 
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody style="background-color:white">
 
                           	<?php  
+
+
                              /**
                               * @param    string   Obtiene el mes
                               * @return   string   Regrea el valor del mes como numero.
@@ -151,26 +170,31 @@
                         				$sql_constantes = "SELECT i_estado_institucion,consecutivo_institucion,codigo_LicMaster FROM constantes";
                         				$result_constantes = $conexion->consulta($sql_constantes);
                         				$constantes = mysqli_fetch_array($result_constantes);
+
+                                $a_Pat = convierteMayus($row['a_paterno']);
+                                $a_Mat = convierteMayus($row['a_materno']);
+                                $nombre = convierteMayus($row['nombre']);
+
                         			ECHO "<tr>
                         					<td > $row[curp]</td>
-                        					<td > $row[a_paterno]</td>
-                        					<td > $row[a_materno]</td>
-                        					<td > $row[nombre]</td>
+                        					<td width=130> $a_Pat</td>
+                        					<td width=130> $a_Mat</td>
+                        					<td width=150> $nombre</td>
 
-                        					<td > $constantes[i_estado_institucion]</td>
-                        					<td > ".llenaCeros("$constantes[consecutivo_institucion]")."</td>
+                        					<td width=110> $constantes[i_estado_institucion]</td>
+                        					<td width=60> ".llenaCeros("$constantes[consecutivo_institucion]")."</td>
 
-                        					<td > $carrera[i_area]</td>
-                        					<td > ".llenaCeros("$carrera[i_subArea]")."</td>
-                        					<td > $carrera[i_nivel]</td>              					
-                        					<td > ".llenaCeros("$carrera[consecutivo]")."</td>
+                        					<td width=60> $carrera[i_area]</td>
+                        					<td width=110> ".llenaCeros("$carrera[i_subArea]")."</td>
+                        					<td width=60> $carrera[i_nivel]</td>              					
+                        					<td width=60> ".llenaCeros("$carrera[consecutivo]")."</td>
 
-                        					<td > $constantes[codigo_LicMaster]</td>
-                        					<td > $titulacion[sexo]</td>
-                        					<td > $titulacion[entidad_nacimiento]</td>
-                        					<td > $titulacion[fecha_nacimiento]</td>
-                        					<td > $cer </td>
-                        					<td > $titulacion[pais_radica]</td>
+                        					<td width=60> $constantes[codigo_LicMaster]</td>
+                        					<td width=30> $titulacion[sexo]</td>
+                        					<td width=60> $titulacion[entidad_nacimiento]</td>
+                        					<td width=60> $titulacion[fecha_nacimiento]</td>
+                        					<td width=60> $cer </td>
+                        					<td width=50> $titulacion[pais_radica]</td>
                                   <!--
                         					<td > - </td>
                         					<td > - </td>
@@ -184,7 +208,9 @@
                       </table>
 
       	</div>
+      
 	    </div>
+
 
 
 </body>

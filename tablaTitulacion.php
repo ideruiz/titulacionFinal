@@ -32,18 +32,18 @@
           		$conexion = new Conexion();
           	?>
 
-            <div id="tabla" style="background:white">
-              		  <table class="table table-hover table-condensed">
+            <div id="tabla">
+              		  <table class="table table-hover" id="tabla" border = "1" style="background:white">
                             <thead>
                                 <tr style = "font-weight: bold; background-color: #10151C; color:white;">
+                                  <th>Editar</th>
                                   <th>ID</th>
                                   <th>Nombre</th>
                                   <th>CURP</th>
                                   <th>Carrera</th>
                                   <th>Periodo</th>
                                   <th>Bachillerato</th>
-                                  <th>Periodo</th>
-                                  <th>Editar</th>
+                                  <th>Periodo</th>                     
                                 </tr>
                             </thead>
 
@@ -58,19 +58,19 @@
                                     $form = $form.$alumno;
                                     
                               			ECHO "<tr>
-                                  				<td>$alumno</td>
-                                  				<td width = 250>$row[nombre] $row[a_paterno] $row[a_materno]</td>
-                                  				<td>$row[curp]</td>
-                                  				<td>$row[carrera]</td>
-                                  				<td>$row[periodo_carrera]</td>
-                                  				<td>$row[nombre_bachillerato]</td>
-                                  				<td>$row[periodo_bachillerato]</td>
-                                  				<td>
+                                          <td>
                                               
-                                                  <input type='hidden' name='$alumno'>
-                                                  <input id='editartit' class='btn btn-inverse' type='submit' value='Editar' onClick='check($alumno)'>
+                                              <input type='hidden' name='$alumno'>
+                                              <input id='editartit' class='btn btn-inverse' type='submit' value='Editar' onClick='check($alumno)'>
                                               
                                           </td>
+                                  				<td width=50>$alumno</td>
+                                  				<td width=360>$row[nombre] $row[a_paterno] $row[a_materno]</td>
+                                  				<td width=50>$row[curp]</td>
+                                  				<td width=500>$row[carrera]</td>
+                                  				<td width=50>$row[periodo_carrera]</td>
+                                  				<td width=600>$row[nombre_bachillerato]</td>
+                                  				<td width=50>$row[periodo_bachillerato]</td>
                                 			</tr>";
                               		}
                               	?>

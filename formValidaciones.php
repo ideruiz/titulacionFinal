@@ -1,6 +1,17 @@
 <html>
+
+<!--
+*@Sistema de titulación UAO
+*@versión: 3.0      
+*@modificado: 14 de Septiembre del 2013
+*@autor back-end: Saúl David López Delgado
+*@autor front-end: Gerardo Ideyoshi Ruiz Ventura
+-->
+
 <head>
+
 	<title>Lista de Candidatos</title>
+
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="language" content="es" />
     
@@ -12,6 +23,7 @@
 	<script type="text/javascript" src="./jQuery/scriptStartTit.js"></script>
 
 </head>
+
 <body>
 
 	<div id="todo">

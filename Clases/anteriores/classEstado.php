@@ -5,14 +5,14 @@
 	class Estado{
 
 		private $conexion;
-		private $msjSuccess = "Estado agregado correctamente";
+		private $msjSuccess = "Estado agregado";
 		private $msjWarning = "Algo salio mal, intente otra vez";
 		private $msjError = "Al parecer,el Estado ya existe";
-		private $msjEstadoActualizaError = "El estado no se ha podido actualizar";
-		private $msjEstadoActualiza = "El estado se ha actualizado correctamente";
-		private $msjEstadoNoExiste = "El estado no existe";	
-		private $msjEstadoEliminadoError = "El estado no se ha podido eliminar";
-		private $msjEstadoEliminado = "El estado ha sido eliminado";	
+		private $msjEstadoActualizaError = "El Estado no se ha podido actualizar";
+		private $msjEstadoActualiza = "El Estado se ha actualizado correctamente";
+		private $msjEstadoNoExiste = "El Estado no existe";	
+		private $msjEstadoEliminadoError = "El Estado no se ha podido eliminar";
+		private $msjEstadoEliminado = "El Estado ha sido eliminado";	
 
 
 		function __construct($C){

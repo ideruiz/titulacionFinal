@@ -5,15 +5,77 @@
   overflow: auto;
   }
 
-.formulario{
+.titulo2{
+    line-height: 1.5;
+    color: #000;
+    text-align: left;   
+    font-size: 30px;
+    padding-top: 2%;
+    font-family: Segoe UI Light;
+    margin-bottom: 20px;
+    padding-left: 6%;
+}
+
+.titulo3{
+    line-height: 1.5;
+    color: #000;
+    text-align: left;   
+    font-size: 32px;
+    padding-top: 4%;
+    font-family: Segoe UI Light;
+    margin-bottom: 20px;
+    padding-left: 10%;
+}
+
+
+#formulario{
 	position: absolute;
-	width: 800px;
-	height: 100px;
+	width: 53em;
+	height: 14em;
 	left:50%;
-	top:50%;	
+	top:40%;	
 	margin-top: -50px;
 	margin-left: -400px;
-	text-align: center;
-	background-color: red;
-	color:white;
+	color:#000;
+}
+
+
+#aviso{
+		font-size: 18px;
+    font-style: Segoe UI;
+    font-weight: bold;
+    color: green;
+    margin-top: 5%;
+	}
+
+/*PARA EL BOTON DE REGRESAR*/
+
+#div_regresar{
+  float: right;
+  width: 125px;
+  padding-top: 3%;
+  margin-right: 13%;
+}
+
+#botonatras{
+  background-color: #10151C;
+  width: 90px;
+  height: 35px;
+  float: right;
+  position: relative;
+}
+
+#iconoatras{
+  background-color: #D42B1E;
+  width: 35px;
+  height: 35px;
+  float: right;
+  position: relative;
+}
+
+#textoatras{
+  padding-top: 7px;
+  padding-left: 27px;
+  font-size: 18px;
+  color: #fff;
 }

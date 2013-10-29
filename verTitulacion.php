@@ -18,6 +18,10 @@
     <link rel="stylesheet" type = "text/css" href="./bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="./estilos/style_verExportables.css">
 
+    <script type="text/javascript" src="./jQuery/jQuery.js"></script>
+    <script type="text/javascript" src="./jQuery/scriptConfig.js"></script>
+    <script type="text/javascript" src="./jQuery/scriptExportables.js"></script>
+
 </head>
 
 <body>
@@ -32,13 +36,21 @@
 
     <div id="todo">
 
-      <div class="btn-descargar">  
-          <input class="btn btn-large btn-primary" id="btn-descargarTit"type="button" value="Descargar" onclick="location.href='Exportables/exportableTitulacion.xlsx';">
+      <div id="div_regresar3">
+            <div id="botonatras" style="cursor:pointer">  <div id="textoatras">Atrás</div>      </div>    
+
+            <div id="iconoatras" style="cursor:pointer">  <img src="./iconos/back.png"> </div>
       </div>
 
-	   <div id="tabla">
-      		<table class="table table-hover"  border = "1" style="background-color: #10151C; color:white;">
-                    <thead>
+      <div class="btn-descargar">  
+          <input class="btn btn-large btn-primary" id="btn-descargarTit" type="button" value="Descargar" >
+      </div>
+
+      <div id="aviso"></div>
+
+	   <div id="tabla" >
+      		<table class="table table-hover"  id="tabla" border = "1" overflow:"scrol">
+                    <thead style="background-color: #10151C; color:white">
                       <tr>
                         <th>#</th>
                         <th>Tipo</th>
@@ -63,7 +75,7 @@
                       </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody style="background-color:white">
                       <?php  
                     		$sql = "SELECT * FROM titulacion";
                     		$result = $conexion->consulta($sql);
@@ -73,31 +85,33 @@
                     			$nombre = $row['nombre']." ".$row['a_paterno']." ".$row['a_materno'];
                     			ECHO "<tr>
                     					<td > $count</td>
-                    					<td > $row[tipo_titulacion]</td>
-                    					<td > $nombre</td>
-                    					<td > $row[titulo]</td>
-                    					<td > $row[nombre_rector]</td>
-                    					<td > $row[exp_titulo]</td>
-                    					<td > $row[libro]</td>
-                    					<td > $row[foja]</td>
-                    					<td > $row[curp]</td>
-                    					<td > $row[nombre_bachillerato]</td>
-                    					<td > $row[periodo_bachillerato]</td>
-                    					<td > $row[entidad_bachillerato]</td>
-                    					<td > $row[institucion]</td>
-                    					<td > $row[carrera]</td>
-                    					<td > $row[periodo_carrera]</td>
-                    					<td > $row[entidad_institucion]</td>
-                    					<td > $row[examen_profesional]</td>
-                    					<td > $row[certificacion]</td>
-                    					<td > $row[administracion_escolar]</td>
+                    					<td width=50> $row[tipo_titulacion]</td>
+                    					<td width=370> $nombre</td>
+                    					<td width=540> $row[titulo]</td>
+                    					<td width=180> $row[nombre_rector]</td>
+                    					<td width=400> $row[exp_titulo]</td>
+                    					<td width=40> $row[libro]</td>
+                    					<td width=40> $row[foja]</td>
+                    					<td width=90> $row[curp]</td>
+                    					<td width=540> $row[nombre_bachillerato]</td>
+                    					<td width=50> $row[periodo_bachillerato]</td>
+                    					<td width=90> $row[entidad_bachillerato]</td>
+                    					<td width=150> $row[institucion]</td>
+                    					<td width=470> $row[carrera]</td>
+                    					<td width=80> $row[periodo_carrera]</td>
+                    					<td width=90> $row[entidad_institucion]</td>
+                    					<td width=70> $row[examen_profesional]</td>
+                    					<td width=430> $row[certificacion]</td>
+                    					<td width=200> $row[administracion_escolar]</td>
                     				</tr>";
                     		}
                     	?>                
                     </tbody>
           </table>
       </div>
+      
 	   </div>
+
 
 </body>
 

@@ -31,7 +31,7 @@
 #div_cerrar{
   float: right;
   width: 125px;
-  padding-top: 3%;
+  margin-top: 3%;
   margin-right: 13%;
 }
 
@@ -65,9 +65,10 @@
   position: inherit;
   float: left;
   width: 195px;
-  padding-top: 2%;
+  height: 35px;
+  margin-top: 2%;
   margin-left: 9%;
-  padding-bottom: 5%;
+  margin-bottom: 5%;
 }
 
 #iconoguardar{

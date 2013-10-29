@@ -24,7 +24,7 @@ $(document).ready(function (){
 		var paterno = $("input[name=paterno]").val();
 		var materno = $("input[name=materno]").val();
 
-		var e_nacimiento = $("#entidad option:selected").val();
+		var e_nacimiento = $("input[name=edo]").val();
 		var p_radica = $("input[name=p_radica]").val();
 
 		var anioN = $("#nacimiento_anio option:selected").val();
@@ -42,7 +42,7 @@ $(document).ready(function (){
 		}
 
 		var curp = $("input[name=curp]").val();
-		var prepa = $("#prepas option:selected").text();
+		var prepa = $("input[name=bach]").val();
 		var prepaI = $("input[name=prepaI]").val();
 		var prepaF = $("input[name=prepaF]").val();
 		var periodoPrepa = prepaI+"-"+prepaF;
@@ -88,31 +88,31 @@ $(document).ready(function (){
 		}
 
 		if(p_radica == ""){
-			alerta = alerta + ("-CÃ³digo de PaÃ­s\n");
+			alerta = alerta + ("-Código de País\n");
 		}		
 
 		if (prepa =="Preparatoria"){
 			alerta = alerta + ("-Bachillerato\n");
 		}
 		if (prepaI ==""){
-			alerta = alerta + ("-AÃ±o de Inicio del Bachillerato\n");
+			alerta = alerta + ("-Año de Inicio del Bachillerato\n");
 		}
 		if (prepaF ==""){
-			alerta = alerta + ("-AÃ±o de Termino del Bachillerato\n");
+			alerta = alerta + ("-Año de Termino del Bachillerato\n");
 		}
 
 		if (carrera =="Licenciatura"){
 			alerta = alerta + ("-Carrera\n");
 		}
 		if (carreraI ==""){
-			alerta = alerta + ("-AÃ±o de Inicio de la Carrera\n");
+			alerta = alerta + ("-Año de Inicio de la Carrera\n");
 		}
 		if (carreraF ==""){
-			alerta = alerta + ("-AÃ±o de Termino de la Carrera\n");
+			alerta = alerta + ("-Año de Termino de la Carrera\n");
 		}
 		
 		if(tipo=="0"){
-			alerta = alerta + ("-Tipo de TitulaciÃ³n\n");
+			alerta = alerta + ("-Tipo de Titulación\n");
 		}
 
 		if(sexo=="0"){
@@ -129,11 +129,11 @@ $(document).ready(function (){
 
 		if (activados == '1'){
 			if(certificacion==""){
-				alerta = alerta + ("-Lugar y Fecha de CertifiaciÃ³n\n");
+				alerta = alerta + ("-Lugar y Fecha de Certifiación\n");
 			}
 		
 			if(titulacion==""){
-				alerta = alerta + ("-Campus y Fecha de TitulaciÃ³n\n");
+				alerta = alerta + ("-Campus y Fecha de Titulación\n");
 			}
 		}
 
@@ -163,6 +163,7 @@ $(document).ready(function (){
 	            }
 
 	        }).done(function (mensaje){
+	        	$('#aviso').addClass("avisoexito");
 	            $('#aviso').html(mensaje);
 	        }).fail(function (mensaje){
 	            $('#aviso').html("Algo salio mal");

@@ -27,7 +27,7 @@ $(document).ready(function(){
 		$('#cargar').on('click', function(){
 		$('#div_opc').css("display", "none");
 		$('#div_opc').fadeIn('slow');
-		$('#div_opc').load('formArchivo.html');
+		$('#div_opc').load('cargarArchivo.html');
 		});
 
 
@@ -71,6 +71,23 @@ $(document).ready(function(){
 		$('#todo').css("display", "none");
 		$('#todo').fadeIn('slow');
 		$('#todo').load('catalogos.html');
+		});
+
+		//BOTON DE REGRESAR 3er HIJO (Exportables)
+
+		$('#div_regresar3').on('click', function(){
+		$('#todo').css("display", "none");
+		$('#todo').fadeIn('slow');
+		$('#todo').load('exportables.html');
+		});
+
+		//BOTON DE REGRESO A HOME.PHP
+
+		$('#div_regresar4').on('click', function(){
+		location.href='./home.php';
+		$('#content').css("display", "none");
+		$('#content').show('slow');
+		$('#content').load('configuracion.html');
 		});
 		
 

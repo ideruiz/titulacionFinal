@@ -12,23 +12,10 @@
 	class Archivo{
 
 		private $temporal;
-		private $archivo;
-		private $directorio;
+		private $archivo = 'candidatos.csv';
+		private $directorio = 'Archivos/';
 		private $extension;
 		private $nombre;
-
-		/**
-		* El constructor inicializa los valores del archivo cuando se crea una nueva instancia.
-		*/
-		function __construct($t, $a, $d, $e){
-
-			$this->temporal  = $t;
-			$this->archivo 	= $a;
-			$this->directorio= $d;			
-			$this->extension = $e;
-			$this->nombre = str_replace(".".$this->extension, "", $this->archivo) ;
-
-		}
 
 		/**
 		* @return 	String 		Extension del archivo. 	
@@ -58,12 +45,7 @@
 		* @return 	boolean 	True si el archivo se ha cargado exitosamente.
 		*/
 		function cargarArchivo(){
-/*
-			if(!$this->verificaTipo() ){
-				ECHO "<br>Archivo incompatible";
-				return false;
-			}
-*/
+
 			if( file_exists($this->directorio.$this->archivo) ){
 				//ECHO "<br>El archivo '$this->archivo' ya existe en el servidor";
 				return false;
@@ -96,7 +78,8 @@
 		* @return 	boolean 	True si el archivo se ha abierto exitosamente.
 		*/
 		function abrirArchivo(){
-			return fopen($this->directorio.$this->archivo,"r");
+			$abierto =  fopen($this->directorio.$this->archivo,"r");
+			return $abierto;
 		}
 
 		/**
@@ -104,6 +87,10 @@
 		*/
 		function cerrarArchivo($handle){
 			return fclose($handle);
+		}
+
+		function existeArchivo(){
+			return file_exists($this->directorio.$this->archivo);
 		}
 
 		function insertarBD($conn){
@@ -116,7 +103,6 @@
 			while( ($row = fgetcsv($open,1000,",","\n")) !== false ){
 				$count++;
 				//almacenar los campos en variables
-				//var_dump($row);
 				$programa		=$row[0];
 				$descripcion	=$row[1];
 				$id_alumno		=$row[2];	
@@ -126,8 +112,7 @@
 				$c_inscritos	=$row[7];
 				$c_ganados		=$row[8];
 				$p_avance		=$row[9];
-				$c_avance		=$row[10];
-				
+				$c_avance		=$row[10];				
 				
 				/**
 				*	limpiar_entrada: verifica que las variables estén codificadas en UTF-8
@@ -162,10 +147,21 @@
 						$c_avance)";
 		
 				$a = $conn->consulta( $alumno ); 
+				if($a){
+					$count2++;
+				}
+
 
 				$id="INSERT into validaciones (fk_alumno) VALUES ($id_alumno)";
 
 				$i = $conn->consulta( $id );
+			}
+
+			if($count==$count2){
+				return true;
+			}
+			else{
+				return false;
 			}
 
 		}		

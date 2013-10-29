@@ -13,8 +13,8 @@
 
 .opc{
 	background-color: #D42B1E;
-	width: 28%;
-	height: 22%;
+	width: 12em;
+	height: 5em;
 	font-size: 200%;
 	display: inline-table;
 	margin-top: 4%;
@@ -40,3 +40,27 @@
 	margin-right: 7.5%;
 	margin-top: 40px;
 }
+
+/*BORRABLES*/
+.visible{
+      background-color:orange; 
+      position:absolute;
+      top:5%;
+      left:5%;
+      right:5%;
+      width:auto;
+      height: auto;
+      z-index:+1;
+}
+
+.fondo{   
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    background-color:black;
+    /*IE*/
+    filter: alpha(opacity=50);
+    /*FireFox Opera*/
+    opacity: .5;

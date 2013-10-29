@@ -26,7 +26,7 @@
     
 </head>
 
-<body>
+<body oncontextmenu="return false">
 
 	<div id="todo">
 
@@ -50,28 +50,28 @@
 							<div class="control-group">
 								<label class="control-label"> Identificador de Area</label> 
 									<div class="controls">
-										<input type = "text" name="area" maxlength="1" required  id="area">
+										<input onkeypress='return justNumbers(event);' type = "text" name="area" maxlength="1" required  id="area">
 									</div>
 							</div>
 
 							<div class="control-group">
 								<label class="control-label"> Identificador de Sub Area</label> 
 									<div class="controls">
-										<input type = "text" name="subArea" maxlength="2" required id="subArea">
+										<input onkeypress='return justNumbers(event);' type = "text" name="subArea" maxlength="2" required id="subArea">
 									</div>
 							</div>
 
 							<div class="control-group">
 								<label class="control-label"> Identificador de Nivel</label> 
 									<div class="controls">
-										<input type = "text" name="nivel" 	maxlength="1" required id="nivel">
+										<input onkeypress='return justNumbers(event);' type = "text" name="nivel" 	maxlength="1" required id="nivel">
 									</div>
 							</div>
 
 							<div class="control-group">	
 								<label class="control-label"> Consecutivo</label>
 									<div class="controls">
-										<input type = "text" name="consecutivo" maxlength="2" required id="consecutivo">
+										<input onkeypress='return justNumbers(event);' type = "text" name="consecutivo" maxlength="2" required id="consecutivo">
 									</div>
 							</div>
 
@@ -94,4 +94,13 @@
 	</div>
 
 </body>
+
+<script type="text/javascript">
+	function justNumbers(e) {
+		var keynum = window.event ? window.event.keyCode : e.which;
+		if ( keynum == 8 ) return true;
+		return /\d/.test(String.fromCharCode(keynum));
+	}
+</script>
+
 </html>

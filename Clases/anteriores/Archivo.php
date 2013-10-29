@@ -58,14 +58,14 @@
 		* @return 	boolean 	True si el archivo se ha cargado exitosamente.
 		*/
 		function cargarArchivo(){
-
+/*
 			if(!$this->verificaTipo() ){
 				ECHO "<br>Archivo incompatible";
 				return false;
 			}
-
+*/
 			if( file_exists($this->directorio.$this->archivo) ){
-				ECHO "<br>El archivo '$this->archivo' ya existe en el servidor";
+				//ECHO "<br>El archivo '$this->archivo' ya existe en el servidor";
 				return false;
 			}
 
@@ -109,9 +109,12 @@
 		function insertarBD($conn){
 
 			$open = $this->abrirArchivo();
-			$i=0;
+			//$i=0;
+			$count=0;
+			$count2=0;
 
 			while( ($row = fgetcsv($open,1000,",","\n")) !== false ){
+				$count++;
 				//almacenar los campos en variables
 				//var_dump($row);
 				$programa		=$row[0];

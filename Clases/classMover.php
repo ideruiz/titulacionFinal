@@ -32,8 +32,8 @@
 					$result = $this->conexion->consulta($sql);
 					$registros = $registros + 1;
 					if(!$result)
-						{ ECHO "Error: El alumno FK $row[fk_alumno] no se pudo procesar"; 
-							return false;
+						{ ECHO "Error: El alumno $row[fk_alumno] no se pudo procesar"; 
+							//return false;
 						}
 						
 					else{
@@ -45,7 +45,7 @@
 					$sql = "UPDATE validaciones SET estado_validacion='0' WHERE fk_alumno=$row[fk_alumno]";
 					$result = $this->conexion->consulta($sql);
 					if(!$result)
-						ECHO "Error: El alumno FK $row[fk_alumno] no se pudo procesar";
+						ECHO "Error: El alumno $row[fk_alumno] no se pudo procesar";
 				}
 			}
 
@@ -56,29 +56,44 @@
 				return false;
 		}
 
+		function prepararTablas(){
 
-		function copiaDatos(){
-
+			//Vaciar tabla "titulacion"
 			$elimina = "TRUNCATE TABLE titulacion";
-			$borrado = $this->conexion->consulta($elimina);
-			
-				$sql = "INSERT INTO titulacion (fk_alumno) 
-					SELECT (fk_alumno)
-					FROM validaciones
-					WHERE estado_validacion = '1' ";
+			$limpiaTitulacion = $this->conexion->consulta($elimina);
 
-				$result = $this->conexion->consulta($sql);
-
+			//vaciar tabla "profesionista" 
 			$elimina = "TRUNCATE TABLE profesionista";
-			$borrado = $this->conexion->consulta($elimina);
+			$limpiaProfesionista = $this->conexion->consulta($elimina);
 
-				$sql2 = "INSERT INTO profesionista (fk_alumno) 
-					SELECT (fk_alumno)
-					FROM validaciones
-					WHERE estado_validacion = '1' ";
-						
-				$result2 = $this->conexion->consulta($sql2);
+			if($limpiaTitulacion && $limpiaTitulacion){ return true;}
+			else { return false;}
+		}
 
+		function copiarValidados(){
+			//Copiar alumnos validados a la tabla titulacion			
+			$sql = "INSERT INTO titulacion (fk_alumno) 
+				SELECT (fk_alumno)
+				FROM validaciones
+				WHERE estado_validacion = '1' ";
+			$result = $this->conexion->consulta($sql);
+
+			//Copiar alumnos validados a la tabla profesionista
+			$sql2 = "INSERT INTO profesionista (fk_alumno) 
+				SELECT (fk_alumno)
+				FROM validaciones
+				WHERE estado_validacion = '1' ";
+			$result2 = $this->conexion->consulta($sql2);
+
+			if($result && $result2) { return true;}
+			else { return false; }
+
+		}
+
+
+		function copiarDatos(){	
+
+				//Copiar datos de la tabla constantes a la tabla profesionista
 				$Q="SELECT fk_alumno FROM titulacion";
 				$result = $this->conexion->consulta($Q);
 
@@ -109,6 +124,7 @@
 							WHERE fk_alumno='$fk'";
 
 						$res = $this->conexion->consulta($consulta);
+						
 						if($res){
 							$this->insertNames=$this->insertNames+1;
 						}
@@ -123,7 +139,7 @@
 				}
 		}//END Function
 
-		function eliminaValidados(){
+		function eliminarValidados(){
 			$count = 0;
 			$borrados = 0;
 

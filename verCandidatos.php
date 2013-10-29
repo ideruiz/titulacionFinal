@@ -51,7 +51,7 @@
 						while($row = mysqli_fetch_array($alumno)){
 
 							echo'
-								<tbody>
+								<tbody style="background-color:white">
 									<tr style="font-size:12px; "  > 
 										<td valign = middle >'								.$row['programa'].' 			</td>
 										<td valign = middle >'								.$row['descripcion'].' 			</td>

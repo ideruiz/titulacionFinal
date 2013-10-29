@@ -137,6 +137,20 @@
 				return true;
 
 		}
+
+		function buscaRol($usuario,$password){
+
+			$this->password = $this->encriptarPassword($password);
+
+			$sql = "SELECT fk_rol FROM usuario WHERE nombre_usuario = '$usuario' AND password = '$this->password'";
+			$result = $this->conexion->consulta($sql);
+			$rol = mysqli_fetch_array($result);
+
+			$r = $rol['fk_rol'];
+
+			return $r;
+		
+		}
 		/**
 		* @return 	Boolean 	true: en caso de que el Nombre de Usuario exista en la BD
 		*/

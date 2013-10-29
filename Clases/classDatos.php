@@ -14,6 +14,7 @@
 		function actualizarAlumno($datos){
 
 			$titulo = "Licenciado en ".$datos['carrera'];
+			$carrera = "Licenciatura en ".$datos['carrera'];
 			$prepa = explode("-",$datos['prepa']);
 
 			$e_Nac = $this->numeroEstado($datos['e_nacimiento']);
@@ -30,7 +31,7 @@
 							nombre_bachillerato	= '$prepa[0]',
 							entidad_bachillerato= '$prepa[1]',
 							periodo_bachillerato= '$datos[periodoPrepa]',
-							carrera				= '$datos[carrera]',
+							carrera				= '$carrera',
 							periodo_carrera		= '$datos[periodoCarrera]',
 							exp_titulo			= '$datos[titulacion]',
 							certificacion		= '$datos[certificacion]'

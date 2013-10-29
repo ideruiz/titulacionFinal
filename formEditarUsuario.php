@@ -101,7 +101,7 @@
 					</div>	
 
 					<div id="div_editar">
-	                		<div id="botonguardar" style="cursor:pointer"><div id="textoguardar">Guardar</div></div>    <div id="iconoguardar" style="cursor:pointer"><img src="./iconos/32/guardar.png"></div>
+	                		<div id="botonguardar" style="cursor:pointer"><div id="textoguardar">Guardar cambios</div></div>    <div id="iconoguardar" style="cursor:pointer"><img src="./iconos/32/guardar.png"></div>
 	        		</div>
 
 				</form>

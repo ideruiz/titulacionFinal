@@ -7,14 +7,63 @@
 #tabla{
 	position: relative;
 	float: left;
-	background-color:white;
+  width: 300em;
 	margin-left: 2em;
-	margin-right: 2em;
 	margin-top: 3em;
+}
+
+#tabla2{
+  position: relative;
+  float: left;
+  width: 130em;
+  margin-left: 2em;
+  margin-top: 3em;
 }
 
 .btn-descargar{
 	float: left;
 	margin-left: 3em;
 	margin-top: 1em;
+}
+
+#aviso{
+	float: left;
+  font-size: 18px;
+	font-style: Segoe UI;
+	font-weight: bold;
+	color: green;
+	margin-left: 2em;
+	margin-top: 1.6em;
+}
+
+/*PARA EL BOTON DE REGRESAR*/
+
+#div_regresar3{
+  float: right;
+  width: 125px;
+  padding-top: 3%;
+  margin-right: 3%;
+}
+
+#botonatras{
+  background-color: #10151C;
+  width: 90px;
+  height: 35px;
+  float: right;
+  position: relative;
+}
+
+#iconoatras{
+  background-color: #D42B1E;
+  width: 35px;
+  height: 35px;
+  float: right;
+  position: relative;
+}
+
+#textoatras{
+  padding-top: 7px;
+  padding-left: 27px;
+  font-size: 18px;
+  color: #fff;
 }

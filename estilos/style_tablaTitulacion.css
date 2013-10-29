@@ -5,9 +5,13 @@
  }
 
 #tabla{
-	margin-top: 3%;
-	margin-left: 6%;
-	margin-right: 6%;
+	position: relative;
+	float: left;
+	width: 140em;
+	margin-left: 2em;
+	margin-top: 1em;
+
+	
 }
 
 .visible{
